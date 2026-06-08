@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="TimeTravel Agency — Voyages temporels d'exception. Paris 1889, le Crétacé et Florence 1504 vous attendent.">
+<title>TimeTravel Agency — Voyages dans le temps d'exception</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ NAVIGATION ============ -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#accueil" class="nav__brand" aria-label="TimeTravel Agency, accueil">
+      <span class="nav__mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="34" height="34">
+          <circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="20" cy="20" r="12" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+          <line x1="20" y1="20" x2="20" y2="8"  stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="20" y1="20" x2="28" y2="24" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+          <circle cx="20" cy="20" r="1.6" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="nav__name">TimeTravel<em>Agency</em></span>
+    </a>
+
+    <nav class="nav__links" aria-label="Navigation principale">
+      <a href="#agence">L'Agence</a>
+      <a href="#destinations">Destinations</a>
+      <a href="#quiz">Votre Époque</a>
+      <a href="#reservation">Réserver</a>
+    </nav>
+
+    <a href="#reservation" class="btn btn--ghost nav__cta">Embarquer</a>
+
+    <button class="nav__burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="accueil">
+  <!-- If assets/hero.mp4 exists it plays; otherwise the animated canvas/gradient shows -->
+  <video class="hero__video" id="heroVideo" autoplay muted loop playsinline poster="assets/hero-poster.svg">
+    <source src="assets/hero.mp4" type="video/mp4">
+  </video>
+  <canvas class="hero__canvas" id="starfield"></canvas>
+  <div class="hero__veil"></div>
+
+  <div class="hero__content">
+    <p class="hero__eyebrow reveal">Maison de voyages temporels — depuis « toujours »</p>
+    <h1 class="hero__title">
+      <span class="line"><span>Voyagez</span></span>
+      <span class="line"><span>à travers</span></span>
+      <span class="line line--accent"><span>le Temps.</span></span>
+    </h1>
+    <p class="hero__lede reveal">
+      Trois époques d'exception, une discrétion absolue. La Belle Époque, l'aube
+      des géants, la splendeur de la Renaissance — réservées à quelques voyageurs.
+    </p>
+    <div class="hero__actions reveal">
+      <a href="#destinations" class="btn btn--gold">Explorer les destinations</a>
+      <a href="#quiz" class="btn btn--ghost">Trouver mon époque</a>
+    </div>
+  </div>
+
+  <a href="#agence" class="hero__scroll" aria-label="Faire défiler">
+    <span></span>
+  </a>
+</section>
+
+<!-- ============ AGENCE ============ -->
+<section class="agency" id="agence">
+  <div class="agency__grid">
+    <div class="agency__intro reveal">
+      <p class="section__kicker">L'Agence</p>
+      <h2 class="section__title">Le luxe ultime n'est pas un lieu.<br><span class="accent">C'est une date.</span></h2>
+      <p class="agency__text">
+        Depuis notre comptoir hors du temps, TimeTravel Agency orchestre des séjours
+        d'exception dans les plus belles heures de l'Histoire. Chaque voyage est
+        accompagné, sécurisé et entièrement sur-mesure — un majordome temporel veille
+        sur vous, du départ au retour.
+      </p>
+      <p class="agency__text">
+        Notre promesse : aucune empreinte, aucun paradoxe, aucun compromis sur le confort.
+      </p>
+    </div>
+    <ul class="agency__stats">
+      <li class="reveal"><span class="stat__num" data-count="3">0</span><span class="stat__label">Époques d'exception</span></li>
+      <li class="reveal"><span class="stat__num" data-count="100">0</span><span class="stat__suffix">%</span><span class="stat__label">Voyages sans paradoxe</span></li>
+      <li class="reveal"><span class="stat__num" data-count="24">0</span><span class="stat__suffix">/7</span><span class="stat__label">Majordome temporel</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ DESTINATIONS ============ -->
+<section class="dest" id="destinations">
+  <div class="dest__head">
+    <p class="section__kicker">Destinations</p>
+    <h2 class="section__title">Trois fenêtres sur l'éternité</h2>
+    <p class="section__sub">Sélectionnez une époque pour en découvrir le détail, les prix et l'itinéraire.</p>
+  </div>
+
+  <div class="dest__grid" id="destGrid">
+    <!-- Cards injected by JS from a single data source -->
+  </div>
+</section>
+
+<!-- ============ QUIZ ============ -->
+<section class="quiz" id="quiz">
+  <div class="quiz__panel reveal">
+    <p class="section__kicker">Recommandation sur-mesure</p>
+    <h2 class="section__title">Quelle époque vous attend ?</h2>
+    <p class="section__sub">Quatre questions. Une destination faite pour vous.</p>
+
+    <div class="quiz__stage" id="quizStage">
+      <!-- Questions / result injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESERVATION ============ -->
+<section class="booking" id="reservation">
+  <div class="booking__grid">
+    <div class="booking__copy reveal">
+      <p class="section__kicker">Réservation</p>
+      <h2 class="section__title">Réservez votre traversée</h2>
+      <p class="section__sub">
+        Indiquez vos préférences : notre majordome temporel vous recontacte sous
+        24 heures (de votre fuseau présent) pour finaliser l'itinéraire.
+      </p>
+      <ul class="booking__perks">
+        <li>Préparation et combinaison d'époque incluses</li>
+        <li>Accompagnement par un guide-historien certifié</li>
+        <li>Assurance anti-paradoxe tous risques</li>
+      </ul>
+    </div>
+
+    <form class="booking__form" id="bookingForm" novalidate>
+      <div class="field">
+        <label for="bk-name">Nom complet</label>
+        <input type="text" id="bk-name" name="name" autocomplete="name" required>
+        <small class="err" data-for="name"></small>
+      </div>
+      <div class="field">
+        <label for="bk-email">Adresse e-mail</label>
+        <input type="email" id="bk-email" name="email" autocomplete="email" required>
+        <small class="err" data-for="email"></small>
+      </div>
+      <div class="field">
+        <label for="bk-dest">Destination</label>
+        <select id="bk-dest" name="dest" required>
+          <option value="">Choisir une époque…</option>
+          <option value="paris">Paris 1889 — Belle Époque</option>
+          <option value="cretace">Le Crétacé — il y a 65 millions d'années</option>
+          <option value="florence">Florence 1504 — Renaissance</option>
+        </select>
+        <small class="err" data-for="dest"></small>
+      </div>
+      <div class="field">
+        <label for="bk-date">Date de départ</label>
+        <input type="date" id="bk-date" name="date" required>
+        <small class="err" data-for="date"></small>
+      </div>
+      <div class="field field--full">
+        <label for="bk-travelers">Voyageurs</label>
+        <input type="number" id="bk-travelers" name="travelers" min="1" max="6" value="2" required>
+        <small class="err" data-for="travelers"></small>
+      </div>
+      <button type="submit" class="btn btn--gold btn--block">Demander mon devis temporel</button>
+      <p class="booking__success" id="bookingSuccess" hidden></p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <span class="nav__name">TimeTravel<em>Agency</em></span>
+      <p>Voyages dans le temps d'exception. Projet pédagogique — Ynov Campus, M2.</p>
+    </div>
+    <div class="footer__cols">
+      <div>
+        <h4>Époques</h4>
+        <a href="#destinations">Paris 1889</a>
+        <a href="#destinations">Le Crétacé</a>
+        <a href="#destinations">Florence 1504</a>
+      </div>
+      <div>
+        <h4>Agence</h4>
+        <a href="#agence">Notre maison</a>
+        <a href="#quiz">Votre époque</a>
+        <a href="#reservation">Réserver</a>
+      </div>
+      <div>
+        <h4>Équipe</h4>
+        <!-- TODO: remplacez par les noms/prénoms des 4 membres du groupe -->
+        <span class="footer__team">Membre 1 · Membre 2 ·<br>Membre 3 · Membre 4</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer__base">
+    <span>© <span id="year"></span> TimeTravel Agency — Tous temps réservés.</span>
+    <span>Fait avec passion (et un peu d'anachronisme).</span>
+  </div>
+</footer>
+
+<!-- ============ DESTINATION MODAL ============ -->
+<div class="modal" id="modal" hidden>
+  <div class="modal__backdrop" data-close></div>
+  <div class="modal__card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal__close" data-close aria-label="Fermer">&times;</button>
+    <div class="modal__body" id="modalBody"><!-- injected --></div>
+  </div>
+</div>
+
+<!-- ============ CHATBOT ============ -->
+<button class="chat__bubble" id="chatBubble" aria-label="Ouvrir l'assistant">
+  <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
+    <path fill="currentColor" d="M12 3C6.5 3 2 6.8 2 11.4c0 2.2 1 4.2 2.8 5.7-.1 1.2-.6 2.6-1.6 3.7 1.7-.2 3.3-.8 4.6-1.7 1.3.4 2.7.7 4.2.7 5.5 0 10-3.8 10-8.4S17.5 3 12 3z"/>
+  </svg>
+</button>
+
+<div class="chat" id="chatPanel" hidden>
+  <div class="chat__head">
+    <div class="chat__id">
+      <span class="chat__avatar" aria-hidden="true">⏳</span>
+      <div>
+        <strong>Augustin</strong>
+        <small>Majordome temporel · en ligne</small>
+      </div>
+    </div>
+    <div class="chat__head-actions">
+      <button class="chat__icon" id="chatSettings" aria-label="Paramètres IA" title="Connecter une IA (optionnel)">⚙</button>
+      <button class="chat__icon" id="chatClose" aria-label="Fermer">&times;</button>
+    </div>
+  </div>
+
+  <div class="chat__settings" id="chatSettingsPanel" hidden>
+    <p>Mode <strong>scripté</strong> actif (aucune configuration requise, idéal pour la démo).</p>
+    <p class="chat__settings-hint">Optionnel : collez une clé OpenRouter ou Mistral pour des réponses générées en direct. La clé reste dans votre navigateur (session) et n'est jamais publiée.</p>
+    <label for="apiKey">Clé API (optionnel)</label>
+    <input type="password" id="apiKey" placeholder="sk-or-... / votre clé Mistral" autocomplete="off">
+    <div class="chat__settings-row">
+      <select id="apiProvider">
+        <option value="openrouter">OpenRouter</option>
+        <option value="mistral">Mistral</option>
+      </select>
+      <button class="btn btn--gold btn--sm" id="apiSave">Activer</button>
+    </div>
+  </div>
+
+  <div class="chat__log" id="chatLog" aria-live="polite"></div>
+
+  <div class="chat__suggest" id="chatSuggest"></div>
+
+  <form class="chat__form" id="chatForm">
+    <input type="text" id="chatInput" placeholder="Posez-moi vos questions sur les voyages temporels…" autocomplete="off">
+    <button type="submit" aria-label="Envoyer">
+      <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M3 20.5 21 12 3 3.5 3 10l11 2-11 2z"/></svg>
+    </button>
+  </form>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
