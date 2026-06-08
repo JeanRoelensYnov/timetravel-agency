@@ -149,10 +149,11 @@ $$('.nav__links a').forEach(a =>
 (function heroVideo() {
   const v = $('#heroVideo');
   if (!v) return;
+  // Show the starfield fallback ONLY if the video source truly fails.
+  // No timeout-based removal: a valid but slow-loading video must never be dropped.
   v.addEventListener('error', () => v.remove(), true);
-  setTimeout(() => {
-    if (v.networkState === 3 || v.readyState === 0) v.remove(); // 3 = NETWORK_NO_SOURCE
-  }, 4000);
+  const p = v.play && v.play();      // nudge muted autoplay on stricter browsers
+  if (p && p.catch) p.catch(() => {});
 })();
 
 /* =====================================================================
