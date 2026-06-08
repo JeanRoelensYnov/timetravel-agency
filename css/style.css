@@ -156,7 +156,7 @@ section{ position:relative; z-index:2; }
 }
 .hero__video,.hero__canvas{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; }
 .hero__canvas{ z-index:0; }
-.hero__video{ z-index:0; opacity:.55; }
+.hero__video{ z-index:1; opacity:1; }
 /* hide video frame if no source resolves — canvas stays behind as fallback */
 .hero__video:not([src]):empty{ display:none; }
 .hero__veil{

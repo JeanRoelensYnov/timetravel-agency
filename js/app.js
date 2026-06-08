@@ -150,8 +150,9 @@ $$('.nav__links a').forEach(a =>
   const v = $('#heroVideo');
   if (!v) return;
   v.addEventListener('error', () => v.remove(), true);
-  // If no <source> resolves shortly, drop it so the canvas shows through.
-  setTimeout(() => { if (v.readyState === 0) v.remove(); }, 1500);
+  setTimeout(() => {
+    if (v.networkState === 3 || v.readyState === 0) v.remove(); // 3 = NETWORK_NO_SOURCE
+  }, 4000);
 })();
 
 /* =====================================================================
